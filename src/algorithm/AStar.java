@@ -2,43 +2,57 @@ package algorithm;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Set;
+import java.util.function.Function;
 
 import object.Board;
 import object.State;
 
-/**
- * Implements the Uniform Cost Search algorithm for solving the Rush Hour puzzle.
- * UCS is a special case of A* where h(n) = 0, so we only consider g(n) (path cost).
- */
-public class UCS {
+public class AStar {
     private int nodesVisited;
     private long executionTime;
     private State initialState;
     private State goalState;
+    private Function<Board, Integer> heuristicFunction;
     
-    public UCS(Board initialBoard) {
+    public AStar(Board initialBoard, Function<Board, Integer> heuristicFunction) {
         this.initialState = new State(initialBoard);
         this.nodesVisited = 0;
         this.executionTime = 0;
         this.goalState = null;
+        this.heuristicFunction = heuristicFunction;
+        
+        // Calculate heuristic for initial state
+        initialState.setHeuristic(heuristicFunction.apply(initialBoard));
     }
     
+    /**
+     * Default constructor using the blocking cars heuristic
+     * 
+     * @param initialBoard Initial board configuration
+     */
+    public AStar(Board initialBoard) {
+        this(initialBoard, GreedyBestFirst::blockingCarsHeuristic);
+    }
+
     public boolean execute() {
         long startTime = System.currentTimeMillis();
         
-        // Priority queue sorted by cost (Uniform Cost Search uses g(n) only)
-        PriorityQueue<State> openSet = new PriorityQueue<>(Comparator.comparingInt(State::getCost));
+        // Priority queue sorted by f(n) = g(n) + h(n)
+        PriorityQueue<State> openSet = new PriorityQueue<>();
+        Map<Board, Integer> bestCostSoFar = new HashMap<>();
         Set<Board> closedSet = new HashSet<>();
         
         openSet.add(initialState);
+        bestCostSoFar.put(initialState.getBoard(), 0);
         
         while (!openSet.isEmpty()) {
-            // Get the state with the lowest cost
+            // Get the state with the lowest f(n) value
             State current = openSet.poll();
             nodesVisited++;
             
@@ -49,18 +63,33 @@ public class UCS {
                 return true;
             }
             
+            // Skip if we've processed this state with a better cost
+            Integer bestCost = bestCostSoFar.get(current.getBoard());
+            if (bestCost != null && current.getCost() > bestCost) {
+                continue;
+            }
+            
             // Add current board to closed set
             closedSet.add(current.getBoard());
             
             // Generate and process next states
             for (State nextState : current.generateNextStates()) {
-                // Skip if we've already visited this board configuration
-                if (closedSet.contains(nextState.getBoard())) {
+                Board nextBoard = nextState.getBoard();
+                
+                // Skip if we've already visited this board configuration with a better cost
+                if (closedSet.contains(nextBoard)) {
                     continue;
                 }
                 
-                // Add to open set
-                openSet.add(nextState);
+                // Calculate heuristic for next state
+                nextState.setHeuristic(heuristicFunction.apply(nextBoard));
+                
+                // Check if we found a better path to this board
+                Integer currentBestCost = bestCostSoFar.get(nextBoard);
+                if (currentBestCost == null || nextState.getCost() < currentBestCost) {
+                    bestCostSoFar.put(nextBoard, nextState.getCost());
+                    openSet.add(nextState);
+                }
             }
         }
         
@@ -86,7 +115,7 @@ public class UCS {
         Collections.reverse(path);
         return path;
     }
-
+    
     public int getNodesVisited() {
         return nodesVisited;
     }
@@ -94,7 +123,7 @@ public class UCS {
     public long getExecutionTime() {
         return executionTime;
     }
-
+    
     public int getNumberOfMoves() {
         return goalState != null ? goalState.getCost() : -1;
     }

@@ -1,0 +1,69 @@
+Solution found!
+Number of moves: 7
+Nodes visited: 227
+Execution time: 42 ms
+
+Papan Awal
+AAB..F.
+..BCDF.
+GPPCDFK
+GH.III.
+GHJ....
+LLJMM..
+
+Gerakan 1: C-up
+AABC.F.
+..BCDF.
+GPP.DFK
+GH.III.
+GHJ....
+LLJMM..
+
+Gerakan 2: D-up
+AABCDF.
+..BCDF.
+GPP..FK
+GH.III.
+GHJ....
+LLJMM..
+
+Gerakan 3: I-left
+AABCDF.
+..BCDF.
+GPP..FK
+GHIII..
+GHJ....
+LLJMM..
+
+Gerakan 4: F-down
+AABCD..
+..BCDF.
+GPP..FK
+GHIIIF.
+GHJ....
+LLJMM..
+
+Gerakan 5: F-down
+AABCD..
+..BCD..
+GPP..FK
+GHIIIF.
+GHJ..F.
+LLJMM..
+
+Gerakan 6: F-down
+AABCD..
+..BCD..
+GPP...K
+GHIIIF.
+GHJ..F.
+LLJMMF.
+
+Gerakan 7: P-right-to-exit
+AABCD..
+..BCD..
+G....PK
+GHIIIF.
+GHJ..F.
+LLJMMF.
+
