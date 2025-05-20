@@ -1,65 +1,3 @@
-// import IO.InputParser;
-// import java.io.*;
-// import java.util.*;
-// import object.*;
-
-// public class Main {
-//     public static void main(String[] args) throws IOException {
-//         Scanner scanner = new Scanner(System.in);
-
-//         System.out.print("Masukkan nama file input(tanpa .txt): ");
-//         String filename = scanner.nextLine();
-
-//         System.out.print("Pilih algoritma (ucs, gbfs, astar): ");
-//         String algo = scanner.nextLine().toLowerCase();
-
-//         Board board = InputParser.parse("../test/" + filename + ".txt");
-
-//         // Solver solver;
-//         // switch (algo) {
-//         //     case "ucs" -> solver = new UCS();
-//         //     // case "gbfs" -> solver = new GreedyBestFirst();
-//         //     case "astar" -> solver = new AStar();
-//         //     default -> throw new IllegalArgumentException("Algoritma tidak dikenali.");
-//         // }
-
-//         // long start = System.currentTimeMillis();
-//         // List<Move> solution = solver.solve(board);
-//         // long end = System.currentTimeMillis();
-
-//         System.out.println("Papan Awal:");
-//         board.printBoard();
-//         // System.out.println(board.getPrimaryPiece());
-//         System.out.println("Exit is at: " + board.getExitRow() + "," + board.getExitCol());
-
-
-//     //     if (solution == null) {
-//     //         System.out.println("Tidak ditemukan solusi.");
-//     //     } else {
-//     //         System.out.println("Papan Awal:");
-//     //         board.printBoard();
-
-//     //         Board currentBoard = board;
-//     //         for (int i = 0; i < solution.size(); i++) {
-//     //             Move move = solution.get(i);
-//     //             System.out.println("Gerakan " + (i + 1) + ": " + move);
-//     //             currentBoard = currentBoard.applyMove(move);
-//     //             currentBoard.printBoard();
-//     //         }
-//     //         System.out.println("Waktu eksekusi: " + (end - start) + "ms");
-//         //     }
-//         }
-//     }
-
-// import IO.InputParser;
-// import IO.OutputFile;
-// import algorithm.AStar;
-// import algorithm.GreedyBestFirst;
-// import algorithm.UCS;
-// import java.util.List;
-// import java.util.Scanner;
-// import object.Board;
-// import object.State;
 import java.util.List;
 import java.util.Scanner;
 
@@ -75,8 +13,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Masukkan path file input (misal: test/input01.txt):");
-        String filepath = scanner.nextLine().trim();
+        System.out.println("Masukkan path file input (tanpa .txt):");
+        String filename = scanner.nextLine().trim();
+        String filepath = "../test/" + filename + ".txt";
 
         System.out.println("Pilih algoritma (ucs / gbfs / astar):");
         String algo = scanner.nextLine().trim().toLowerCase();
@@ -125,8 +64,8 @@ public class Main {
 
             if (path != null && !path.isEmpty()) {
                 OutputFile.printSolution(path, nodesVisited, executionTime);
-                OutputFile.saveSolution(path, nodesVisited, executionTime, "output_solution.txt");
-                System.out.println("Solusi ditulis ke file: output_solution.txt");
+                OutputFile.saveSolution(path, nodesVisited, executionTime, "../test/solution_" + filename + ".txt");
+                System.out.println("Solusi ditulis ke file: solution_"+ filename + ".txt");
             } else {
                 System.out.println("Tidak ditemukan solusi.");
             }

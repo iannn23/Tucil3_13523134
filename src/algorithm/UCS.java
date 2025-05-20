@@ -11,10 +11,6 @@ import java.util.Set;
 import object.Board;
 import object.State;
 
-/**
- * Implements the Uniform Cost Search algorithm for solving the Rush Hour puzzle.
- * UCS is a special case of A* where h(n) = 0, so we only consider g(n) (path cost).
- */
 public class UCS {
     private int nodesVisited;
     private long executionTime;

@@ -1,7 +1,7 @@
 Solution found!
 Number of moves: 7
-Nodes visited: 227
-Execution time: 42 ms
+Nodes visited: 38496
+Execution time: 1372 ms
 
 Papan Awal
 AAB..F.
@@ -11,23 +11,23 @@ GH.III.
 GHJ....
 LLJMM..
 
-Gerakan 1: C-up
-AABC.F.
+Gerakan 1: I-left
+AAB..F.
 ..BCDF.
-GPP.DFK
-GH.III.
+GPPCDFK
+GHIII..
 GHJ....
 LLJMM..
 
 Gerakan 2: D-up
-AABCDF.
+AAB.DF.
 ..BCDF.
-GPP..FK
-GH.III.
+GPPC.FK
+GHIII..
 GHJ....
 LLJMM..
 
-Gerakan 3: I-left
+Gerakan 3: C-up
 AABCDF.
 ..BCDF.
 GPP..FK
