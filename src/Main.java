@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.Function;
 
 import IO.InputParser;
 import IO.OutputFile;
@@ -19,6 +20,18 @@ public class Main {
 
         System.out.println("Pilih algoritma (ucs / gbfs / astar):");
         String algo = scanner.nextLine().trim().toLowerCase();
+
+        Function<Board, Integer> heuristicFunction = GreedyBestFirst::blockingCarsHeuristic;
+        if (algo.equals("gbfs") || algo.equals("astar")) {
+            System.out.println("Pilih heuristic (blocking / distance):");
+            String heuristic = scanner.nextLine().trim().toLowerCase();
+
+            if (heuristic.equals("distance")) {
+                heuristicFunction = GreedyBestFirst::distanceAndBlockingHeuristic;
+            } else if (!heuristic.equals("blocking")) {
+                System.out.println("Heuristic tidak dikenali. Menggunakan heuristic default (blocking).");
+            }
+        }
 
         try {
             Board board = InputParser.parse(filepath);
@@ -42,7 +55,7 @@ public class Main {
                     }
                     break;
                 case "gbfs":
-                    GreedyBestFirst gbfs = new GreedyBestFirst(board);
+                    GreedyBestFirst gbfs = new GreedyBestFirst(board, heuristicFunction);
                     if (gbfs.execute()) {
                         path = gbfs.getSolutionPath();
                         nodesVisited = gbfs.getNodesVisited();
@@ -50,7 +63,7 @@ public class Main {
                     }
                     break;
                 case "astar":
-                    AStar astar = new AStar(board);
+                    AStar astar = new AStar(board, heuristicFunction);
                     if (astar.execute()) {
                         path = astar.getSolutionPath();
                         nodesVisited = astar.getNodesVisited();

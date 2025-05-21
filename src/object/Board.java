@@ -6,12 +6,12 @@ import java.util.List;
 import java.util.Map;
 
 public class Board {
-    public int rows;           // Number of rows
-    public int cols;           // Number of columns
-    public char[][] grid;      // Grid representation
-    public Map<Character, Car> cars; // Map of cars by their ID
-    public int exitRow;        // Row of the exit
-    public int exitCol;        // Column of the exit
+    public int rows;           
+    public int cols;           
+    public char[][] grid;   
+    public Map<Character, Car> cars;
+    public int exitRow;        
+    public int exitCol;        
     
     public Board(int rows, int cols) {
         this.rows = rows;

@@ -3,22 +3,14 @@ package object;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Represents a state in the search algorithm, containing a board configuration
- * and path information.
- */
+
 public class State implements Comparable<State> {
     public Board board;             // Current board configuration
     public State parent;            // Parent state
     public Board.BoardMove move;    // Move that led to this state
     public int cost;                // Cost to reach this state (number of moves)
     public int heuristic;           // Heuristic value
-    
-    /**
-     * Constructor for initial state (root)
-     * 
-     * @param board Initial board configuration
-     */
+
     public State(Board board) {
         this.board = board;
         this.parent = null;
@@ -27,13 +19,6 @@ public class State implements Comparable<State> {
         this.heuristic = 0;
     }
     
-    /**
-     * Constructor for child states
-     * 
-     * @param board  New board configuration
-     * @param parent Parent state
-     * @param move   Move that led to this state
-     */
     public State(Board board, State parent, Board.BoardMove move) {
         this.board = board;
         this.parent = parent;
@@ -88,30 +73,15 @@ private int getNewColFromDirection(Car car, String direction) {
         .map(move -> new State(move.getBoard(), this, move))
         .toList();
 }
-    
-    /**
-     * Check if this state is a goal state (puzzle solved)
-     * 
-     * @return true if goal state, false otherwise
-     */
+
     public boolean isGoal() {
         return board.isSolved();
     }
     
-    /**
-     * Set the heuristic value for this state
-     * 
-     * @param heuristic Heuristic value
-     */
     public void setHeuristic(int heuristic) {
         this.heuristic = heuristic;
     }
     
-    /**
-     * Get the f(n) value for A* algorithm
-     * 
-     * @return f(n) = g(n) + h(n)
-     */
     public int getFValue() {
         return cost + heuristic;
     }
