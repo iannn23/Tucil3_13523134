@@ -1,8 +1,12 @@
-6 6
-12
-GBB.L.
-GHI.LM
-GHIPPMK
-CCCN.M
-..JNDD
-EEJFF.
+10 10
+15
+AAB....F..
+..B.CCCF.M
+D.B..T..OM
+D..EET..OM
+D.PP.T..O.K
+D..LLL...H
+......GGGH
+J...NNN..H
+JIII......
+J.........

@@ -1,7 +1,7 @@
 Solution found!
 Number of moves: 3
-Nodes visited: 67
-Execution time: 12 ms
+Nodes visited: 10
+Execution time: 6 ms
 
 Papan Awal
 ....K

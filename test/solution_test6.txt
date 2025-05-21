@@ -1,0 +1,37 @@
+Solution found!
+Number of moves: 3
+Nodes visited: 62
+Execution time: 13 ms
+
+Papan Awal
+.AABCC.
+.DDBE..
+.FPPE.K
+.F.....
+..GHHH.
+IIG....
+
+Gerakan 1: C-right
+.AAB.CC
+.DDBE..
+.FPPE.K
+.F.....
+..GHHH.
+IIG....
+
+Gerakan 2: E-up
+.AABECC
+.DDBE..
+.FPP..K
+.F.....
+..GHHH.
+IIG....
+
+Gerakan 3: P-right-to-exit
+.AABECC
+.DDBE..
+.F...PK
+.F.....
+..GHHH.
+IIG....
+
