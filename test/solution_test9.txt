@@ -1,17 +1,27 @@
 Solution found!
-Number of moves: 1
-Nodes visited: 5
-Execution time: 6 ms
+Number of moves: 2
+Nodes visited: 3
+Execution time: 5 ms
 
 Papan Awal
-A..BK
+....K
+A..BB
 A.CCC
 DDDF.
 ...FP
 .EEEP
 
-Gerakan 1: C-left
-A..BK
+Gerakan 1: B-left
+....K
+A.BB.
+A.CCC
+DDDF.
+...FP
+.EEEP
+
+Gerakan 2: C-left
+....K
+A.BB.
 ACCC.
 DDDF.
 ...FP

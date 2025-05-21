@@ -1,6 +1,6 @@
 Solution found!
 Number of moves: 1
-Nodes visited: 6
+Nodes visited: 2
 Execution time: 5 ms
 
 Papan Awal

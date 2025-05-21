@@ -1,0 +1,185 @@
+Solution found!
+Number of moves: 14
+Nodes visited: 661
+Execution time: 137 ms
+
+Papan Awal
+AAB....F...
+..B.CCCF.M.
+D.B..T..OM.
+D..EET..OM.
+D.PP.T..O.K
+D..LLL...H.
+......GGGH.
+J...NNN..H.
+JIII.......
+J..........
+
+Gerakan 1: O-up
+AAB....F...
+..B.CCCFOM.
+D.B..T..OM.
+D..EET..OM.
+D.PP.T....K
+D..LLL...H.
+......GGGH.
+J...NNN..H.
+JIII.......
+J..........
+
+Gerakan 2: P-right
+AAB....F...
+..B.CCCFOM.
+D.B..T..OM.
+D..EET..OM.
+D..PPT....K
+D..LLL...H.
+......GGGH.
+J...NNN..H.
+JIII.......
+J..........
+
+Gerakan 3: B-down
+AA.....F...
+..B.CCCFOM.
+D.B..T..OM.
+D.BEET..OM.
+D..PPT....K
+D..LLL...H.
+......GGGH.
+J...NNN..H.
+JIII.......
+J..........
+
+Gerakan 4: G-left
+AA.....F...
+..B.CCCFOM.
+D.B..T..OM.
+D.BEET..OM.
+D..PPT....K
+D..LLL...H.
+.....GGG.H.
+J...NNN..H.
+JIII.......
+J..........
+
+Gerakan 5: O-up
+AA.....FO..
+..B.CCCFOM.
+D.B..T..OM.
+D.BEET...M.
+D..PPT....K
+D..LLL...H.
+.....GGG.H.
+J...NNN..H.
+JIII.......
+J..........
+
+Gerakan 6: N-right
+AA.....FO..
+..B.CCCFOM.
+D.B..T..OM.
+D.BEET...M.
+D..PPT....K
+D..LLL...H.
+.....GGG.H.
+J....NNN.H.
+JIII.......
+J..........
+
+Gerakan 7: H-down
+AA.....FO..
+..B.CCCFOM.
+D.B..T..OM.
+D.BEET...M.
+D..PPT....K
+D..LLL.....
+.....GGG.H.
+J....NNN.H.
+JIII.....H.
+J..........
+
+Gerakan 8: B-down
+AA.....FO..
+....CCCFOM.
+D.B..T..OM.
+D.BEET...M.
+D.BPPT....K
+D..LLL.....
+.....GGG.H.
+J....NNN.H.
+JIII.....H.
+J..........
+
+Gerakan 9: J-up
+AA.....FO..
+....CCCFOM.
+D.B..T..OM.
+D.BEET...M.
+D.BPPT....K
+D..LLL.....
+J....GGG.H.
+J....NNN.H.
+JIII.....H.
+...........
+
+Gerakan 10: B-down
+AA.....FO..
+....CCCFOM.
+D....T..OM.
+D.BEET...M.
+D.BPPT....K
+D.BLLL.....
+J....GGG.H.
+J....NNN.H.
+JIII.....H.
+...........
+
+Gerakan 11: C-left
+AA.....FO..
+...CCC.FOM.
+D....T..OM.
+D.BEET...M.
+D.BPPT....K
+D.BLLL.....
+J....GGG.H.
+J....NNN.H.
+JIII.....H.
+...........
+
+Gerakan 12: C-left
+AA.....FO..
+..CCC..FOM.
+D....T..OM.
+D.BEET...M.
+D.BPPT....K
+D.BLLL.....
+J....GGG.H.
+J....NNN.H.
+JIII.....H.
+...........
+
+Gerakan 13: T-up
+AA.....FO..
+..CCCT.FOM.
+D....T..OM.
+D.BEET...M.
+D.BPP.....K
+D.BLLL.....
+J....GGG.H.
+J....NNN.H.
+JIII.....H.
+...........
+
+Gerakan 14: P-right-to-exit
+AA.....FO..
+..CCCT.FOM.
+D....T..OM.
+D.BEET...M.
+D.B......PK
+D.BLLL.....
+J....GGG.H.
+J....NNN.H.
+JIII.....H.
+...........
+
