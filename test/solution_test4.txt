@@ -1,0 +1,29 @@
+Solution found!
+Number of moves: 2
+Nodes visited: 16
+Execution time: 9 ms
+
+Papan Awal
+AABCCD.
+..B..D.
+..BPPEK
+.....E.
+..FF...
+..GG...
+
+Gerakan 1: E-down
+AABCCD.
+..B..D.
+..BPP.K
+.....E.
+..FF.E.
+..GG...
+
+Gerakan 2: P-right-to-exit
+AABCCD.
+..B..D.
+..B..PK
+.....E.
+..FF.E.
+..GG...
+

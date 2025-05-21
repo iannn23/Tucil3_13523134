@@ -14,17 +14,18 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Masukkan path file input (tanpa .txt):");
+        System.out.println("Masukkan path file input (tanpa .txt): ");
         String filename = scanner.nextLine().trim();
         String filepath = "../test/" + filename + ".txt";
 
-        System.out.println("Pilih algoritma (ucs / gbfs / astar):");
+        System.out.println("Pilih algoritma (UCS / GBFS / AStar): ");
         String algo = scanner.nextLine().trim().toLowerCase();
 
         Function<Board, Integer> heuristicFunction = GreedyBestFirst::blockingCarsHeuristic;
         if (algo.equals("gbfs") || algo.equals("astar")) {
             System.out.println("Pilih heuristic (blocking / distance):");
             String heuristic = scanner.nextLine().trim().toLowerCase();
+            System.out.println("\n");
 
             if (heuristic.equals("distance")) {
                 heuristicFunction = GreedyBestFirst::distanceAndBlockingHeuristic;
@@ -40,8 +41,6 @@ public class Main {
             long executionTime = 0;
             System.out.println("Papan Awal:");
             board.printBoard();
-            // OutputFile.printSolution(path, nodesVisited, executionTime);;
-            // // System.out.println(board.getPrimaryPiece());
             System.out.println("Exit is at: " + board.getExitRow() + "," + board.getExitCol());
 
 
