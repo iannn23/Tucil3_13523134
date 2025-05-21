@@ -65,7 +65,7 @@ private int getNewColFromDirection(Car car, String direction) {
             int newCol = car.isHorizontal() ? getNewColFromDirection(car, move.getDirection()) : car.getCol();
             boolean valid = board.isValidMove(car, newRow, newCol);
             if (!valid) {
-                // System.out.println("❌ Gerakan INVALID ditemukan di State.generateNextStates() → " + move);
+                // System.out.println("Gerakan invalid" di );
                 // board.printBoard();
             }
             return valid;

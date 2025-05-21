@@ -14,11 +14,11 @@ import object.State;
 public class OutputFile {
     
     // ANSI color codes for console output
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_YELLOW = "\u001B[33m";
-    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String RESET = "\u001B[0m";
+    public static final String RED = "\u001B[31m";
+    public static final String GREEN = "\u001B[32m";
+    public static final String YELLOW = "\u001B[33m";
+    public static final String BLUE = "\u001B[34m";
     
     /**
      * Print the solution path to the console with colored output
@@ -66,13 +66,13 @@ public class OutputFile {
                 
                 if (cell == 'P') {
                     // Primary car in red
-                    System.out.print(ANSI_RED + cell + ANSI_RESET);
+                    System.out.print(RED + cell + RESET);
                 } else if (cell == 'K') {
                     // Exit in green
-                    System.out.print(ANSI_GREEN + cell + ANSI_RESET);
+                    System.out.print(GREEN + cell + RESET);
                 } else if (movedCarId != null && cell == movedCarId) {
                     // Moved car in yellow
-                    System.out.print(ANSI_YELLOW + cell + ANSI_RESET);
+                    System.out.print(YELLOW + cell + RESET);
                 } else {
                     // Other cells
                     System.out.print(cell);

@@ -27,15 +27,9 @@ public class AStar {
         this.goalState = null;
         this.heuristicFunction = heuristicFunction;
         
-        // Calculate heuristic for initial state
         initialState.setHeuristic(heuristicFunction.apply(initialBoard));
     }
     
-    /**
-     * Default constructor using the blocking cars heuristic
-     * 
-     * @param initialBoard Initial board configuration
-     */
     public AStar(Board initialBoard) {
         this(initialBoard, GreedyBestFirst::blockingCarsHeuristic);
     }
@@ -43,7 +37,6 @@ public class AStar {
     public boolean execute() {
         long startTime = System.currentTimeMillis();
         
-        // Priority queue sorted by f(n) = g(n) + h(n)
         PriorityQueue<State> openSet = new PriorityQueue<>();
         Map<Board, Integer> bestCostSoFar = new HashMap<>();
         Set<Board> closedSet = new HashSet<>();
@@ -52,7 +45,6 @@ public class AStar {
         bestCostSoFar.put(initialState.getBoard(), 0);
         
         while (!openSet.isEmpty()) {
-            // Get the state with the lowest f(n) value
             State current = openSet.poll();
             nodesVisited++;
             
@@ -81,7 +73,6 @@ public class AStar {
                     continue;
                 }
                 
-                // Calculate heuristic for next state
                 nextState.setHeuristic(heuristicFunction.apply(nextBoard));
                 
                 // Check if we found a better path to this board

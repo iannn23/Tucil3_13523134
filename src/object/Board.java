@@ -76,7 +76,7 @@ public class Board {
         }
 
         // debug cetak tujuan gerak
-    // System.out.println("Mencoba memindahkan mobil " + carId + " ke posisi (" + newRow + "," + newCol + ")");
+        // System.out.println("Mencoba memindahkan mobil " + carId + " ke posisi (" + newRow + "," + newCol + ")");
         
         // Check if the move is valid
         if (!isValidMove(car, newRow, newCol)) {
@@ -124,39 +124,34 @@ public class Board {
         
         return newBoard;
     }
+
+    public void validatePrimaryCarExitAlignment() {
+    Car primary = getPrimaryCar();
+    if (primary == null) {
+        throw new IllegalArgumentException("Tidak ditemukan primary piece (P) pada papan.");
+    }
+
+    // Jika horizontal, exit harus di baris yang sama
+    if (primary.isHorizontal()) {
+        if (primary.getRow() != exitRow) {
+            throw new IllegalArgumentException("Primary piece P horizontal tidak sejajar dengan pintu keluar (K).");
+        }
+    } else { 
+        if (primary.getCol() != exitCol) {
+            throw new IllegalArgumentException("Primary piece P vertikal tidak sejajar dengan pintu keluar (K).");
+        }
+    }
+}
     
     public boolean isValidMove(Car car, int newRow, int newCol) {
-        // // Check if the car is moving along its orientation
-        // if (car.isHorizontal() && newRow != car.getRow()) {
-        //     return false; // Horizontal car must move horizontally
-        // }
-        // if (!car.isHorizontal() && newCol != car.getCol()) {
-        //     return false; // Vertical car must move vertically
-        // }
+        // Check if the car is moving along its orientation
+        if (car.isHorizontal() && newRow != car.getRow()) {
+            return false; // Horizontal car must move horizontally
+        }
+        if (!car.isHorizontal() && newCol != car.getCol()) {
+            return false; // Vertical car must move vertically
+        }
         
-        // // Check if the new position is within bounds and cells are empty
-        // int[][] newCells = new int[car.getLength()][2];
-        // for (int i = 0; i < car.getLength(); i++) {
-        //     if (car.isHorizontal()) {
-        //         newCells[i][0] = newRow;
-        //         newCells[i][1] = newCol + i;
-        //     } else {
-        //         newCells[i][0] = newRow + i;
-        //         newCells[i][1] = newCol;
-        //     }
-            
-        //     int r = newCells[i][0];
-        //     int c = newCells[i][1];
-            
-        //     // Check if the cell is within bounds
-        //     if (r < 0 || r >= rows || c < 0 || c >= cols) {
-        //         return false;
-        //     }
-            
-        //     // Check if the cell is occupied by another car
-        //     if (grid[r][c] != '.' && grid[r][c] != car.getId() && grid[r][c] != 'K') {
-        //         return false;
-        //     }
         // Buat salinan grid tanpa mobil yang sedang dipindah
     char[][] tempGrid = new char[rows][cols];
     for (int r = 0; r < rows; r++) {
@@ -348,6 +343,15 @@ public class Board {
         }
         return null;
     }
+
+    public void printBoard() {
+    for (int r = 0; r < rows; r++) {
+        for (int c = 0; c < cols; c++) {
+            System.out.print(grid[r][c]);
+        }
+        System.out.println();
+        }
+    }
     
     public static class BoardMove {
         private Board board;
@@ -417,27 +421,18 @@ public class Board {
         return sb.toString();
     }
     
-@Override
-public boolean equals(Object obj) {
-    if (this == obj) return true;
-    if (obj == null || getClass() != obj.getClass()) return false;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
 
-    Board other = (Board) obj;
-    return this.cars.equals(other.cars);
-}
-
-
-@Override
-public int hashCode() {
-    return cars.hashCode();
-}
-
-    public void printBoard() {
-    for (int r = 0; r < rows; r++) {
-        for (int c = 0; c < cols; c++) {
-            System.out.print(grid[r][c]);
-        }
-        System.out.println();
+        Board other = (Board) obj;
+        return this.cars.equals(other.cars);
     }
-}
+
+
+    @Override
+    public int hashCode() {
+        return cars.hashCode();
+    }
 }

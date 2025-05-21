@@ -30,12 +30,7 @@ public class GreedyBestFirst {
         // Calculate heuristic for initial state
         initialState.setHeuristic(heuristicFunction.apply(initialBoard));
     }
-    
-    /**
-     * Default constructor using the blocking cars heuristic
-     * 
-     * @param initialBoard Initial board configuration
-     */
+
     public GreedyBestFirst(Board initialBoard) {
         this(initialBoard, GreedyBestFirst::blockingCarsHeuristic);
     }

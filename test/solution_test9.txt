@@ -1,0 +1,19 @@
+Solution found!
+Number of moves: 1
+Nodes visited: 5
+Execution time: 6 ms
+
+Papan Awal
+A..BK
+A.CCC
+DDDF.
+...FP
+.EEEP
+
+Gerakan 1: C-left
+A..BK
+ACCC.
+DDDF.
+...FP
+.EEEP
+
